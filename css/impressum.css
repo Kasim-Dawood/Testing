@@ -1,0 +1,293 @@
+/* Start Variables */
+:root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    
+}
+/* End Variables */
+
+/* Start Global ules */
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* using media query */
+/* small screen */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* medium screen*/
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* larg screen */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+/* End Global Rules */
+
+/* Start Components always used */
+.special-heading {
+    color: #ebeced;
+    font-size: 100px;
+    margin: 0;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+/* the p element is the next sibling we use + */
+.special-heading + p {
+    margin: -30px 0 0;
+    font-size: 20px;
+    text-align: center;
+    color: #797979;
+}
+/* to be responsive with the Mobile */
+@media (max-width:767px) {
+    .special-heading {
+        font-size: 60px;
+    }
+    .special-heading + p {
+        margin-top: -20px;
+    }
+}
+/* End Components always used */
+
+/* Start Header Section */
+.header {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+    padding: 15px;
+}
+@media (max-width:767px) {
+    .header {
+        /* background-color: transparent; */
+        padding: 5px;
+    }
+}
+
+/* flex the Container */
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* resize the Logo */
+.header .logo {
+    width: 60px;
+}
+/* the links is the parent must be relative */
+.header .links {
+    position: relative;
+}
+.header .links:hover .icon span:nth-child(2) {
+    width: 100%;
+}
+/* design the Hamburger icons */
+.header .links .icon {
+    width: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+/* the span inside the icon */
+.header .links .icon span {
+    background-color: var(--secondary-color);
+    margin-bottom: 5px;
+    height: 3px;
+}
+/* resize the span */
+.header .links .icon span:first-child {
+    width: 100%;
+}
+.header .links .icon span:nth-child(2) {
+    width: 60%;
+    transition: .3s;
+}
+.header .links .icon span:last-child {
+    width: 100%;
+}
+/* working with ul links */
+.header .links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    top: calc(100% + 15px);
+    display: none;
+    z-index: 1;
+}
+
+/* design the small arrow */
+.header .links ul::before {
+    content: '';
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #6b5c5c transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+}
+.header .links:hover ul {
+    display: block;
+}
+/* design the links iside the ul */
+.header .links ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
+}
+.header .links ul li a:hover {
+    padding-left: 25px;
+}
+/* border-bottom for links li + a */
+.header .links ul li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+/* End Header Section */
+
+/* Start Landing Section (background_image) */
+.landing {
+    background-image: url(../img/landing1_1.jpg);
+    background-size: cover;
+    height: calc(100vh - 64px);
+    position: relative;
+}
+.landing .intro-text {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    text-align: center;
+    /* width: 320px; */
+    max-width: 100%;
+    transform: translate(-50%, -50%);
+}
+.landing .intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 48px;
+    color: var(--main-color);
+}
+.landing .intro-text p {
+    font-size: 24px;
+    line-height: 1.8;
+}
+@media (max-width:767px) {
+    .landing .intro-text h1 {
+        font-size: 27px;
+    }
+    .landing .intro-text p {
+        font-size: 15px;
+    }
+}
+/* End Landing Section (background_image) */
+
+
+/* Start Impressum Section */
+.impressum {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.impressum .special-heading + p {
+    margin-top: -13px;
+    font-size: 20px;
+    text-align: center;
+    color: #797979;
+    margin-bottom: 40px;
+}
+.impressum .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 168px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+@media (max-width:767px) {
+    .impressum .text {
+        padding: 20px;
+    }
+    .impressum .special-heading + p {
+        margin-top: -13px;
+        font-size: 15px;
+        text-align: center;
+        color: #797979;
+        margin-bottom: 40px;
+    }
+}
+
+/* Start Footer Section */
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 18px;
+}
+.footer .all-rights {
+    font-size: 20px;
+}
+.footer span {
+    color: var(--main-color);
+    font-weight: bold;
+    cursor: pointer;
+}
+.footer span:hover {
+    color: #ebeced;
+    font-weight: bold;
+}
+
+.footer .footer-links {
+    display: flex;
+    justify-content:center;
+    padding: 12px;
+}
+@media (max-width:767px) {
+    .footer .footer-links {
+        padding-top: 12px;
+        display: block;
+    }
+    .footer .all-rights {
+        font-size: 16px;
+    }
+}
+.footer .footer-links div a {
+
+    color: white;
+    padding-left: 12px;
+    font-size: 16px;
+    text-decoration: none;
+}
+.footer .footer-links div a:hover {
+    color: var(--main-color);
+}
+/* End Footer Section */
